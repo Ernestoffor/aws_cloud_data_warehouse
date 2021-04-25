@@ -58,7 +58,8 @@ Python can be installed by following the instructions in the links below:
 
 ## Running the Code
 The codes are to be ran in the following order:
-``` python3 sql_queries.py
+``` 
+    python3 sql_queries.py
     python3 create_tables.py
     python3 etl.py 
 ```
