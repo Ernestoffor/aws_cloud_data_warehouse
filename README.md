@@ -1,8 +1,8 @@
 # AWS CLOUD DATA WAREHOUSE
 This project is a continuation of a previous work on [data modeling of a company's songs and logs data in postgreSQL database](https://gitlab.com/offor20/data_modeling_with_postgreSQL). The company has made tremendous growth and decided to migrate their data and operations to the cloud. They have uploaded their data in two Amazon S3 storage directories holding their JSON logs on user activity and JSON metadata of songs in their music app. The exact locations of the data are:
-* Song data: s3://udacity-dend/song_data
-* Log data: s3://udacity-dend/log_data
-    * Log data json path: s3://udacity-dend/log_json_path.json
+* [Song data](s3://udacity-dend/song_data)
+* [Log data](s3://udacity-dend/log_data)
+    * [Log data json path](s3://udacity-dend/log_json_path.json)
 
 This project aims at building an Extraction, Transformation and Loading (ETL) data pipeline of the company's data by doing the following:
 * Extracting the data from the S3 storage
