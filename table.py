@@ -10,7 +10,8 @@ def drop_tables(cur, conn):
     INPUTS:
         cur -> psycopg2 cursor to execute command.
         conn -> connection to postgresql database for committing executed action/command
-    Returns none.
+    Returns:
+        None.
     """
     for table in drop_table_queries:
         query = "DROP TABLE IF EXISTS {}".format(table)

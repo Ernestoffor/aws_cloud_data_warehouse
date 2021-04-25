@@ -1,13 +1,13 @@
 # AWS CLOUD DATA WAREHOUSE
-This project continues a previous work on [data modeling of a company's songs and logs data in postgreSQL database](https://gitlab.com/offor20/data_modeling_with_postgreSQL). The company has made tremendous growth and decided to migrate their data and operations to the cloud. They have uploaded their data in two Amazon S3 storage directories holding their JSON logs on user activity and JSON metadata of songs in their music app. The exact locations of the data are:
+This project is a continuation of a previous work on [data modeling of a company's songs and logs data in postgreSQL database](https://gitlab.com/offor20/data_modeling_with_postgreSQL). The company has made tremendous growth and decided to migrate their data and operations to the cloud. They have uploaded their data in two Amazon S3 storage directories holding their JSON logs on user activity and JSON metadata of songs in their music app. The exact locations of the data are:
 * Song data: s3://udacity-dend/song_data
 * Log data: s3://udacity-dend/log_data
-    *Log data json path: s3://udacity-dend/log_json_path.json
+    * Log data json path: s3://udacity-dend/log_json_path.json
 
-This project aims at building an Extraction, Transformation and Loading (ETL) pipeline of the company's data by doing the following:
+This project aims at building an Extraction, Transformation and Loading (ETL) data pipeline of the company's data by doing the following:
 * Extracting the data from the S3 storage
 * Staging the data in an Amazon Redshift (cloud)
-* Processing the data by creating a star schema consisting of a fact table and a set of dimensional tables in the Redshift.
+* Processing the data by creating a star schema consisting of a fact table and a set of four dimensional tables in the Redshift.
 * Running some queries and comparing the results with the expectations of the company's analytics team.
 
 <p>
@@ -17,7 +17,7 @@ The simplified architecture of the the project is as shown in the diagram below.
 </p>
 
 ## Getting Started
-Find below the requirements cum preconditions for successfully running and testing of the project. 
+Find below the requirements cum preconditions for successfully running and testing of the project files. 
 ### Prerequisites
 In order to have full insights into the project's implementations and have it up and running, the following software packages and accounts are necessary:
 *   Python 3
@@ -46,7 +46,24 @@ Python can be installed by following the instructions in the links below:
 
 ***It is advisable to delete a cluster after use to avoid exorbitant bills*** 
 
+## Implementation Steps
+* First and foremost, there are three key files for this project, namely:
+    * sql_queries.py
+    * create_tables.py
+    * etl.py
+* In the sql_queries.py file, **SQL  DROP TABLE** statements were defined for all the tables, followed by the **SQL CREATE TABLE** statements for all the tables with the table fields and their associated data types.
+* COPY statements to copy the datasets from AWS S3 to staging tables in Redshift are defined in the sql_queries.py file. Also defined in the file are the **SQL INSERT** commands that would populate the individual fact and dimension tables using data from the staging tables. 
+* The create_tables.py defines two functions that drop the tables if they exist and create all the tables anew respectively.
+* In the etl.py file, the actual ETL data pipelines are implemented. Firstly, two functions, namely: load_staging_tables and insert_tables that respectively copy the original datasets from Amazon S3 to the staging tables in Redshift and populate the fact and dimensional tables. Secondly, the etl.py file defines a main function where the actual execution of all the previously defined functions in this file takes place. 
 
+## Running the Code
+The codes are to be ran in the following order:
+``` python3 sql_queries.py
+    python3 create_tables.py
+    python3 etl.py 
+```
+## Authors
+Ernest Offor Ugwoke - previous work [data modeling in postgreSQL](https://gitlab.com/offor20/data_modeling_with_postgreSQL)
 
-
-
+## Acknowledgement
+The author is grateful to the [Udacity data engineering team](www.udacity.com) for their guidance, supervision and supports.

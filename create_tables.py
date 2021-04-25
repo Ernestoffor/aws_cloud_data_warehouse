@@ -11,9 +11,11 @@ def drop_tables(cur, conn):
         conn -> connection to postgresql database for committing executed action/command
     Returns none.
     """
-    for query in drop_table_queries:
+    for table in tables:
+        query = "DROP TABLE IF EXISTS {}".format(table)
         cur.execute(query)
         conn.commit()
+
 
         
 def create_tables(cur, conn):
