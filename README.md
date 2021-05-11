@@ -68,3 +68,6 @@ Ernest Offor Ugwoke - previous work [data modeling in postgreSQL](https://gitlab
 
 ## Acknowledgement
 The author is grateful to the [Udacity data engineering team](www.udacity.com) for their guidance, supervision and supports.
+
+## Continuation:
+The project is continued in [AWS EMR Data Lake Project](https://gitlab.com/offor20/data_lake_in_aws_emr). 
